@@ -11,7 +11,7 @@ var runCmd = true;
 
 function cooldown() {
  runCmd = false;
-  setTimeout(function(){runCmd = true},3000);
+  setTimeout(function(){runCmd = true},120000);
  }
  
 function autoRespond(data) { //the function to respond
@@ -20,7 +20,7 @@ function autoRespond(data) { //the function to respond
         var message = data.message; //the received message
         var fromUsername = data.un; //who sent the message
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-            API.sendChat('/me [AFK] @' + fromUsername + ' ' + afkReason); //respond to who @mentioned you
+            API.sendChat('[AFK] @' + fromUsername + ' ' + afkReason); //respond to who @mentioned you
             console.log(fromUsername + ' > ' + message); //log the message in the console
         }
     }
@@ -59,7 +59,7 @@ API.on(API.CHAT_COMMAND,rcsMsg)
 
 function listcmds(command) { //Function for listing cmds
 	if (command.split(' ') [0] === '/cmds') { //if the command is /cmds lists CMDS
-		API.chatLog('|PH|Available Commands For Potato Helper: /rcs /afk - and more to come!')
+		API.chatLog('|PH|Available Commands For Potato Helper: /rcs /afk /slots - and more to come!')
  }
 }
 API.on(API.CHAT_COMMAND,listcmds)
@@ -70,7 +70,7 @@ function slotmachine(command) { //Function Play slot machine with urself
 		var slot1 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot1
 		var slot2 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot2
 		var slot3 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot3
-		API.chatLog(slot1 + " | " + slot2 + " | " + slot3); //Prints out result
+			API.chatLog(slot1 + " | " + slot2 + " | " + slot3); //Prints out result
 		if (slot1 === slot2){
 			API.chatLog("!!You Win!!"); //you win if
 		}

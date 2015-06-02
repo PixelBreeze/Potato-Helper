@@ -20,7 +20,7 @@ function autoRespond(data) { //the function to respond
         var message = data.message; //the received message
         var fromUsername = data.un; //who sent the message
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-            API.sendChat('[AFK] @' + fromUsername + ' ' + afkReason); //respond to who @mentioned you
+            API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason); //respond to who @mentioned you
             console.log(fromUsername + ' > ' + message); //log the message in the console
         }
     }
@@ -82,3 +82,4 @@ function slotmachine(command) { //Function Play slot machine with urself
 API.on(API.CHAT_COMMAND,slotmachine)
 
 /*=====================================*/
+//Recorded updates 3

@@ -26,7 +26,7 @@ function autoRespond(data) { //the function to respond
    if (runCmd === true) { //if the cooldown is true then run cmds below
     if (isAFK === true) { //if you are afk Responder
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-            API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason); //respond to who @mentioned you
+            API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason + ' I will look at your msges later!'); //respond to who @mentioned you
         }
 		AFKcooldown(); //activates cooldown for X set min
     }
@@ -46,7 +46,8 @@ function AfkMessage(command) { //the function to change the afk message
 		API.sendChat('/me [Going AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
 		alert('|PH|When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode
 	}
-	if (command.split(' ')[0] === '/back') { //When you are back and no longer AFK must type /back
+	if (command.split(' ')[0] === '/back') {	//When you are back and no longer AFK must type /back
+	    API.chatLog('Welcome back! AFK mode has been turned off.');
 		isAFK = false; //you are now no longer afk
 	}
 }
@@ -92,4 +93,4 @@ function slotmachine(command) { //Function Play slot machine with urself
 API.on(API.CHAT_COMMAND,slotmachine)
 
 /*=====================================*/
-//Recorded updates on page 6
+//Recorded updates on page 7

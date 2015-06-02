@@ -1,5 +1,5 @@
-# Potato-Helper
-Plug.dj Chat Utility Script. Fun and useful commands for chat.
+//Potato-Helper
+//Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
 API.chatLog('Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds');
 API.chatLog('|PH|Credits: PixelBreezeNC, Zaro38');

@@ -7,24 +7,34 @@ var currentUsername = '@' + API.getUser().username; //the @name of the person wh
 var afkReason = 'I am AFK right now!'; //standard afk reason
 var isAFK = false; //you are standard not afk
 var respondRCS = false; //responder for RCS
-var runCmd = true;
+var runCmd = true; //for AFKcooldown function
+var cmdRun = true; //for cooldown function
 
-function cooldown() {
+function AFKcooldown() { //used only for AFK cmd.
  runCmd = false;
   setTimeout(function(){runCmd = true},120000);
  }
+
+function cooldown() { //Cooldown cmds for 5s
+ cmdRun = false;
+  setTimeout(function(){cmdRun = true},5000); //timeout cmd - sets after 5000ms cmdRun to true
+ }
  
 function autoRespond(data) { //the function to respond
-   if (runCmd === true) {
+   var message = data.message; //the received message
+   var fromUsername = data.un; //who sent the message
+   if (runCmd === true) { //if the cooldown is true then run cmds below
     if (isAFK === true) { //if you are afk Responder
-        var message = data.message; //the received message
-        var fromUsername = data.un; //who sent the message
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
             API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason); //respond to who @mentioned you
-            console.log(fromUsername + ' > ' + message); //log the message in the console
         }
+		AFKcooldown(); //activates cooldown for X set min
     }
-   cooldown();
+  }
+  if (isAFK ===true) { //Logs msgs @me in console when you are in AFK mode. 
+   if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
+   console.log(fromUsername + ' > ' + message); //log the message in the console 
+   }
   }
 }
 API.on(API.CHAT,autoRespond); //bind the auto respond function to the chat event
@@ -33,7 +43,7 @@ function AfkMessage(command) { //the function to change the afk message
     if (command.split(' ')[0] === '/afk') { //if the command is /afk
         isAFK = true; //you are now afk
         afkReason = command.slice(5,255); //set the afk reason
-		API.sendChat('/me [Going AFK] ' + afkReason);
+		API.sendChat('/me [Going AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
 		alert('|PH|When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode
 	}
 	if (command.split(' ')[0] === '/back') { //When you are back and no longer AFK must type /back
@@ -52,34 +62,33 @@ function rcsMsg(command) { //Function for pretyped rcs msg.
 		respondRCS = false; //or else chat explodes
 	}
 	}
-cooldown();
+cooldown(); //cooldowns functions for 5s
 }
 }
 API.on(API.CHAT_COMMAND,rcsMsg)
 
 function listcmds(command) { //Function for listing cmds
 	if (command.split(' ') [0] === '/cmds') { //if the command is /cmds lists CMDS
-		API.chatLog('|PH|Available Commands For Potato Helper: /rcs /afk /slots - and more to come!')
+		API.chatLog('|PH|Available Commands For Potato Helper: /rcs /afk /slots - and more to come! Msg PixelBreezeNC for any suggestions.')
  }
 }
 API.on(API.CHAT_COMMAND,listcmds)
 
 function slotmachine(command) { //Function Play slot machine with urself
 	if (command.split(' ') [0] === '/slots') { //activates slot machine when /slot in chat
-		var slotItem = [":cherries:",":pineapple:",":apple:",":gift:",":pear:",":banana:",":watermelon:"]; //Items in slotmachine
+		var slotItem = [":cherries:",":pineapple:",":apple:",":gift:",":pear:",":banana:",":watermelon:"]; //Items listed in slotmachine
 		var slot1 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot1
 		var slot2 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot2
 		var slot3 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot3
 			API.chatLog(slot1 + " | " + slot2 + " | " + slot3); //Prints out result
 		if (slot1 === slot2){
-			API.chatLog("!!You Win!!"); //you win if
+			API.chatLog("!!You Win!!"); //you win msg
 		}
 		else {
-			API.chatLog("Better Luck Next Time."); //you loose else
-		}
+			API.chatLog("Better Luck Next Time."); //you loose msg
 	}
 }
 API.on(API.CHAT_COMMAND,slotmachine)
 
 /*=====================================*/
-//Recorded updates 3
+//Recorded updates on page 5

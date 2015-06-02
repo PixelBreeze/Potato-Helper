@@ -31,7 +31,7 @@ function autoRespond(data) { //the function to respond
 		AFKcooldown(); //activates cooldown for X set min
     }
   }
-  if (isAFK ===true) { //Logs msgs @me in console when you are in AFK mode. 
+  if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
    console.log(fromUsername + ' > ' + message); //log the message in the console 
    }
@@ -87,8 +87,9 @@ function slotmachine(command) { //Function Play slot machine with urself
 		else {
 			API.chatLog("Better Luck Next Time."); //you loose msg
 	}
+  }
 }
 API.on(API.CHAT_COMMAND,slotmachine)
 
 /*=====================================*/
-//Recorded updates on page 5
+//Recorded updates on page 6

@@ -2,7 +2,7 @@
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
 API.chatLog('Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds');
-API.chatLog('|PH|Credits: PixelBreezeNC, Zaro38');
+API.chatLog('|PH| Credits: PixelBreezeNC, Zaro38');
 var currentUsername = '@' + API.getUser().username; //the @name of the person who runs the script
 var afkReason = 'I am AFK right now!'; //standard afk reason
 var isAFK = false; //you are standard not afk
@@ -26,7 +26,7 @@ function autoRespond(data) { //the function to respond
    if (runCmd === true) { //if the cooldown is true then run cmds below
     if (isAFK === true) { //if you are afk Responder
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-            API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason + ' I will look at your msges later!'); //respond to who @mentioned you
+            API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
         }
 		AFKcooldown(); //activates cooldown for X set min
     }
@@ -44,7 +44,7 @@ function AfkMessage(command) { //the function to change the afk message
         isAFK = true; //you are now afk
         afkReason = command.slice(5,255); //set the afk reason
 		API.sendChat('/me [Going AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
-		alert('|PH|When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode
+		alert('|PH| When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode
 	}
 	if (command.split(' ')[0] === '/back') {	//When you are back and no longer AFK must type /back
 	    API.chatLog('Welcome back! AFK mode has been turned off.');
@@ -70,7 +70,7 @@ API.on(API.CHAT_COMMAND,rcsMsg)
 
 function listcmds(command) { //Function for listing cmds
 	if (command.split(' ') [0] === '/cmds') { //if the command is /cmds lists CMDS
-		API.chatLog('|PH|Available Commands For Potato Helper: /rcs /afk /slots - and more to come! Msg PixelBreezeNC for any suggestions.')
+		API.chatLog('|PH| Available Commands For Potato Helper: /rcs /afk /slots /kawaii - and more to come! Msg PixelBreezeNC for any suggestions.')
  }
 }
 API.on(API.CHAT_COMMAND,listcmds)
@@ -92,5 +92,14 @@ function slotmachine(command) { //Function Play slot machine with urself
 }
 API.on(API.CHAT_COMMAND,slotmachine)
 
+function kawaiipic(command) { //Function for listing cmds
+	if (command.split(' ') [0] === '/kawaii') { //if the command is /cmds lists CMDS
+	targetUser8 = command.slice(8,255); //The targeted user
+	var picture = ["http://i.imgur.com/Vtgj9ay.gif","http://i.imgur.com/VB572y3.png","http://i.imgur.com/a1NE7Wc.jpg","http://i.imgur.com/jC8E4Nq.jpg","http://puu.sh/iaSR7.jpg"]; //list of Pictures
+	var randomPic = picture[Math.floor(Math.random()*picture.length)]; //Selects the picture 
+		API.sendChat(targetUser8 + ' ' + randomPic) //posts in chat
+ }
+}
+API.on(API.CHAT_COMMAND,kawaiipic)
 /*=====================================*/
-//Recorded updates on page 7
+//Recorded updates on page 8

@@ -97,9 +97,20 @@ function kawaiipic(command) { //Function for listing cmds
 	targetUser8 = command.slice(8,255); //The targeted user
 	var picture = ["http://i.imgur.com/Vtgj9ay.gif","http://i.imgur.com/VB572y3.png","http://i.imgur.com/a1NE7Wc.jpg","http://i.imgur.com/jC8E4Nq.jpg","http://puu.sh/iaSR7.jpg"]; //list of Pictures
 	var randomPic = picture[Math.floor(Math.random()*picture.length)]; //Selects the picture 
-		API.sendChat(targetUser8 + ' ' + randomPic) //posts in chat
+		API.sendChat(targetUser8 + ' ' + randomPic); //posts in chat
  }
 }
 API.on(API.CHAT_COMMAND,kawaiipic)
+
+function fiteuser(command) { //Function fite user kekeke
+	if (command.split(' ') [0] === '/fite' ) { //if the command is /fite do below
+	targetUser6 = command.slice(6,355); //Targeted user
+	var me = API.getUser().username;
+	var outcomes = ["@" + me + " passes out before the fight starts.","@" + targetUser6 + " gets stabbed and dies."];
+	var outcome = outcomes[Math.floor(Math.random()*outcomes.length)];
+		API.sendChat("@" + me + " fites " + "@" + targetUser6 " - " + outcome);
+	}
+}
+API.on(API.CHAT_COMMAND,fiteuser)
 /*=====================================*/
-//Recorded updates on page 8
+//Updates 9

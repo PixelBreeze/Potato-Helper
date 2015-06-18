@@ -70,7 +70,7 @@ API.on(API.CHAT_COMMAND,rcsMsg)
 
 function listcmds(command) { //Function for listing cmds
 	if (command.split(' ') [0] === '/cmds') { //if the command is /cmds lists CMDS
-		API.chatLog('|PH| Available Commands For Potato Helper: /rcs /afk /slots /kawaii - and more to come! Msg PixelBreezeNC for any suggestions.')
+		API.chatLog('|PH| Available Commands For Potato Helper: /rcs /afk /slots /kawaii /fite - and more to come! Msg PixelBreezeNC for any suggestions.')
  }
 }
 API.on(API.CHAT_COMMAND,listcmds)
@@ -105,12 +105,13 @@ API.on(API.CHAT_COMMAND,kawaiipic)
 function fiteuser(command) { //Function fite user kekeke
 	if (command.split(' ') [0] === '/fite' ) { //if the command is /fite do below
 	targetUser6 = command.slice(6,355); //Targeted user
-	var me = API.getUser().username;
-	var outcomes = ["@" + me + " passes out before the fight starts.","@" + targetUser6 + " gets stabbed and dies."];
+	var outcomes = [currentUsername  + " passes out before the fight starts.",targetUser6 + " gets stabbed and dies.",targetUser6 + " ascends to heaven.","Both get knocked out.",currentUsername + " runs at " + targetUser6 + ", but trips and hits head.",targetUser6 + " is unconscious.",currentUsername + " Swings at " + targetUser6 + ", but accidentally hits @donvoo",targetUser6 + " Wins!",currentUsername + " Wins!"];
 	var outcome = outcomes[Math.floor(Math.random()*outcomes.length)];
-		API.sendChat("@" + me + " fites " + "@" + targetUser6 " - " + outcome);
+		API.sendChat(currentUsername + " fites " + targetUser6 + " - " + outcome);
 	}
 }
 API.on(API.CHAT_COMMAND,fiteuser)
+
+
 /*=====================================*/
 //Updates 9

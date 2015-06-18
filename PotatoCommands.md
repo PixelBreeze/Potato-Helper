@@ -9,7 +9,7 @@ Regular Commands
 |/afk | AFK REASON | Auto-Respond , Logs all messages that are addresed to you |
 |/back | | Used with the command '/afk' |
 
-To use '/afk' type in chat - /afk AFK REASON - this will be used as your response message. When you are no longer AFK type /back in chat.
+To use '/afk' type in chat - /afk [AFK REASON] - this will be used as your response message. When you are no longer AFK type /back in chat.
 
 
 Commands with @user option

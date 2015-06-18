@@ -70,7 +70,7 @@ API.on(API.CHAT_COMMAND,rcsMsg)
 
 function listcmds(command) { //Function for listing cmds
 	if (command.split(' ') [0] === '/cmds') { //if the command is /cmds lists CMDS
-		API.chatLog('|PH| Available Commands For Potato Helper: /rcs /afk /slots /kawaii /fite - and more to come! Msg PixelBreezeNC for any suggestions.')
+		API.chatLog('|PH| Available Commands For Potato Helper: https://github.com/PixelBreeze/Potato-Helper/blob/master/PotatoCommands.md - and more to come! Msg PixelBreezeNC for any suggestions.')
  }
 }
 API.on(API.CHAT_COMMAND,listcmds)

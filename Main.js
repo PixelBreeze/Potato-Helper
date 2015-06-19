@@ -20,6 +20,9 @@ function cooldown() { //Cooldown cmds for 5s
   setTimeout(function(){cmdRun = true},5000); //timeout cmd - sets after 5000ms cmdRun to true
  }
  
+ function mehrulecalc() { //Calculates the needed mehs for a skip
+ }
+ 
 function autoRespond(data) { //the function to respond
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
@@ -112,6 +115,12 @@ function fiteuser(command) { //Function fite user kekeke
 }
 API.on(API.CHAT_COMMAND,fiteuser)
 
-
+function mms(command) { //Meh mute shush function
+if (command.split(' ') [0] === '/mms' ) { //if the command is /mms do below
+	tagetUser5 = command.slice(5,355); //Targeted user
+	API.sendChat(targetUser5 + " Please don't ask for skips. Meh and mute the song");
+ 	}
+}
+API.on(API.CHAT_COMMAND,mms)
 /*=====================================*/
 //Updates 9

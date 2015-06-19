@@ -131,6 +131,7 @@ API.on(API.CHAT_COMMAND,mms)
 function mehrule(command) { //Meh mute shush function
 if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
 targetUser9 = command.slice(9,355); //Targeted user
+var MehCalc = Math.floor(UserCount - 100) / 10;
         
 	if (UserCount > 350) { 
 	//	API.sendChat("Users currently in room - " + UserCount)
@@ -138,8 +139,7 @@ targetUser9 = command.slice(9,355); //Targeted user
 	}
 		if (350 > UserCount) { 
 			if (200 < UserCount){
-				mehrulecalc();
-			API.sendChat(targetUser9 + " there are " + mehrulecalc() + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+			API.sendChat(targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 		} }
 			if (UserCount < 200) {
 				API.sendChat(targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");

@@ -139,7 +139,7 @@ targetUser9 = command.slice(9,355); //Targeted user
 		if (350 > UserCount) { 
 			if (200 < UserCount){
 				mehrulecalc();
-			API.sendChat(targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+			API.sendChat(targetUser9 + " there are " + mehrulecalc() + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 		} }
 			if (UserCount < 200) {
 				API.sendChat(targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");

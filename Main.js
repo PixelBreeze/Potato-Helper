@@ -117,7 +117,7 @@ API.on(API.CHAT_COMMAND,fiteuser)
 
 function mms(command) { //Meh mute shush function
 if (command.split(' ') [0] === '/mms' ) { //if the command is /mms do below
-	tagetUser5 = command.slice(5,355); //Targeted user
+	targetUser5 = command.slice(5,355); //Targeted user
 	API.sendChat(targetUser5 + " Please don't ask for skips. Meh and mute the song");
  	}
 }

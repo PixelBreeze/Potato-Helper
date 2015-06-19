@@ -20,6 +20,7 @@ Commands with @user argument
 |/fite | (@user) | Random fight event with selected user |
 |/kawaii | (@user) | Sends a random kawaii picture |
 |/mms | (@user) | Meh mute shush message|
+|/mehrule | (@user) | Calculates needed mehs for a skip |
 
 
 

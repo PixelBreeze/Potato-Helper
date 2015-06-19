@@ -133,7 +133,7 @@ if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
 targetUser9 = command.slice(9,355); //Targeted user
         
 	if (UserCount > 350) { 
-	targetUser9 = command.slice(9,355); //Targeted user
+	//	API.sendChat("Users currently in room - " + UserCount)
 	API.sendChat(targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 	}
 		if (350 > UserCount > 200) {

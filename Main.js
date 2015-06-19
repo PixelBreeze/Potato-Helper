@@ -9,6 +9,9 @@ var isAFK = false; //you are standard not afk
 var respondRCS = false; //responder for RCS
 var runCmd = true; //for AFKcooldown function
 var cmdRun = true; //for cooldown function
+var UserCount = API.getUsers().length; //user count in room
+var MaxMeh = 25;
+var MinMeh = 10;
 
 function AFKcooldown() { //used only for AFK cmd.
  runCmd = false;
@@ -21,6 +24,8 @@ function cooldown() { //Cooldown cmds for 5s
  }
  
  function mehrulecalc() { //Calculates the needed mehs for a skip
+var MehCalc = Math.floor(UserCount - 100) / 10;
+	API.chatLog(MehCalc.toString());
  }
  
 function autoRespond(data) { //the function to respond
@@ -46,7 +51,7 @@ function AfkMessage(command) { //the function to change the afk message
     if (command.split(' ')[0] === '/afk') { //if the command is /afk
         isAFK = true; //you are now afk
         afkReason = command.slice(5,255); //set the afk reason
-		API.sendChat('/me [Going AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
+	API.sendChat('/me [Going AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
 		alert('|PH| When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode
 	}
 	if (command.split(' ')[0] === '/back') {	//When you are back and no longer AFK must type /back
@@ -122,5 +127,25 @@ if (command.split(' ') [0] === '/mms' ) { //if the command is /mms do below
  	}
 }
 API.on(API.CHAT_COMMAND,mms)
+
+function mehrule(command) { //Meh mute shush function
+if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
+targetUser9 = command.slice(9,355); //Targeted user
+        
+	if (UserCount > 350) { 
+	targetUser9 = command.slice(9,355); //Targeted user
+	API.sendChat(targetUser9 + " There are " + MaxMeh + " needed to skip the current song. More Info Here - http://i.imgur.com/jFsKTzS.png");
+	}
+		if (350 > UserCount > 200) {
+			mehrulecalc()
+			API.sendChat(targetUser9 + " There are " + MehCalc + " needed to skip the current song. More Info Here - http://i.imgur.com/jFsKTzS.png");
+		}
+			if (UserCount < 200) {
+				API.sendChat(targetUser9 + " There are " + MinMeh + " needed to skip the current song. More Info Here - http://i.imgur.com/jFsKTzS.png");
+			}
+			
+ }
+}
+API.on(API.CHAT_COMMAND,mehrule)
 /*=====================================*/
 //Updates 9

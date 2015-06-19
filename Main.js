@@ -9,7 +9,7 @@ var isAFK = false; //you are standard not afk
 var respondRCS = false; //responder for RCS
 var runCmd = true; //for AFKcooldown function
 var cmdRun = true; //for cooldown function
-var UserCount = prompt("testing"); // API.getUsers().length; //user count in room
+var UserCount = API.getUsers().length; //user count in room
 var MaxMeh = 25;
 var MinMeh = 10;
 
@@ -132,7 +132,7 @@ function mehrule(command) { //Meh mute shush function
 if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
 targetUser9 = command.slice(9,355); //Targeted user
 var MehCalc = Math.floor(UserCount - 100) / 10;
-        
+API.sendChat("There are " + UserCount + " Users in the room.")   
 	if (UserCount > 350) { 
 	//	API.sendChat("Users currently in room - " + UserCount)
 	API.sendChat(targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");

@@ -136,9 +136,10 @@ targetUser9 = command.slice(9,355); //Targeted user
 	//	API.sendChat("Users currently in room - " + UserCount)
 	API.sendChat(targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 	}
-		if (350 > UserCount && UserCount > 200) { 
+		if (350 > UserCount) { 
+			if (200 < UserCount){
 			API.sendChat(targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
-		}
+		} }
 			if (UserCount < 200) {
 				API.sendChat(targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 			}

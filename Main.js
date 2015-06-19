@@ -9,7 +9,7 @@ var isAFK = false; //you are standard not afk
 var respondRCS = false; //responder for RCS
 var runCmd = true; //for AFKcooldown function
 var cmdRun = true; //for cooldown function
-var UserCount = API.getUsers().length; //user count in room
+var UserCount = prompt(Enter Count) //API.getUsers().length; //user count in room
 var MaxMeh = 25;
 var MinMeh = 10;
 
@@ -134,14 +134,14 @@ targetUser9 = command.slice(9,355); //Targeted user
         
 	if (UserCount > 350) { 
 	targetUser9 = command.slice(9,355); //Targeted user
-	API.sendChat(targetUser9 + " There are " + MaxMeh + " needed to skip the current song. More Info Here - http://i.imgur.com/jFsKTzS.png");
+	API.chatLog(targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 	}
 		if (350 > UserCount > 200) {
 			mehrulecalc()
-			API.sendChat(targetUser9 + " There are " + MehCalc + " needed to skip the current song. More Info Here - http://i.imgur.com/jFsKTzS.png");
+			API.chatLog(targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 		}
 			if (UserCount < 200) {
-				API.sendChat(targetUser9 + " There are " + MinMeh + " needed to skip the current song. More Info Here - http://i.imgur.com/jFsKTzS.png");
+				API.chatLog(targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 			}
 			
  }

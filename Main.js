@@ -9,7 +9,7 @@ var isAFK = false; //you are standard not afk
 var respondRCS = false; //responder for RCS
 var runCmd = true; //for AFKcooldown function
 var cmdRun = true; //for cooldown function
-var UserCount = prompt("testing") // API.getUsers().length; //user count in room
+var UserCount = prompt("testing"); // API.getUsers().length; //user count in room
 var MaxMeh = 25;
 var MinMeh = 10;
 

@@ -134,14 +134,14 @@ targetUser9 = command.slice(9,355); //Targeted user
         
 	if (UserCount > 350) { 
 	targetUser9 = command.slice(9,355); //Targeted user
-	API.chatLog(targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+	API.sendChat(targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 	}
 		if (350 > UserCount > 200) {
 			mehrulecalc()
-			API.chatLog(targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+			API.sendChat(targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 		}
 			if (UserCount < 200) {
-				API.chatLog(targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+				API.sendChat(targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 			}
 			
  }

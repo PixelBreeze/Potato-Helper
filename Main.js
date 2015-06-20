@@ -131,7 +131,7 @@ API.on(API.CHAT_COMMAND,mms)
 function mehrule(command) { //Meh mute shush function
 if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
 targetUser9 = command.slice(9,355); //Targeted user
-var MehCalc = Math.floor(UserCount - 100) / 10;
+var MehCalc = Math.floor((UserCount - 100) / 10);
 API.sendChat("There are " + UserCount + " Users in the room.")   
 	if (UserCount > 350) { 
 	//	API.sendChat("Users currently in room - " + UserCount)

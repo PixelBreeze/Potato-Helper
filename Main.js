@@ -9,7 +9,6 @@ var isAFK = false; //you are standard not afk
 var respondRCS = false; //responder for RCS
 var runCmd = true; //for AFKcooldown function
 var cmdRun = true; //for cooldown function
-var UserCount = API.getUsers().length; //user count in room
 var MaxMeh = 25;
 var MinMeh = 10;
 
@@ -24,6 +23,7 @@ function cooldown() { //Cooldown cmds for 5s
  }
  
  function mehrulecalc() { //Calculates the needed mehs for a skip
+var UserCount = API.getUsers().length; //user count in room
 var MehCalc = Math.floor(UserCount - 100) / 10;
 	API.chatLog(MehCalc.toString());
  }
@@ -130,23 +130,24 @@ API.on(API.CHAT_COMMAND,mms)
 
 function mehrule(command) { //Meh mute shush function
 if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
-targetUser9 = command.slice(9,355); //Targeted user
+var UserCount = API.getUsers().length; //user count in room
+targetUser9 = ("[" + command.slice(9,355) + "]"); //Targeted user
 var MehCalc = Math.floor((UserCount - 100) / 10);
 API.sendChat("There are " + UserCount + " Users in the room.")   
 	if (UserCount > 350) { 
 	//	API.sendChat("Users currently in room - " + UserCount)
-	API.sendChat(targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+	API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 	}
 		if (350 > UserCount) { 
 			if (200 < UserCount){
-			API.sendChat(targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+			API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 		} }
 			if (UserCount < 200) {
-				API.sendChat(targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+				API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 			}
 			
  }
 }
 API.on(API.CHAT_COMMAND,mehrule)
 /*=====================================*/
-//Updates 9
+//Updates 10

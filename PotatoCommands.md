@@ -18,7 +18,6 @@ Commands with @user argument
 |:------:|:---------:|:--------------------------------------:|
 |/rcs | (@user) | Gives link to RCS homepage |
 |/fite | (@user) | Random fight event with selected user |
-|/kawaii | (@user) | Sends a random kawaii picture |
 |/mms | (@user) | Meh mute shush message|
 |/mehrule | (@user) | Calculates needed mehs for a skip |
 

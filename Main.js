@@ -100,15 +100,15 @@ function slotmachine(command) { //Function Play slot machine with urself
 }
 API.on(API.CHAT_COMMAND,slotmachine)
 
-function kawaiipic(command) { //Function for listing cmds
-	if (command.split(' ') [0] === '/kawaii') { //if the command is /cmds lists CMDS
-	targetUser8 = command.slice(8,255); //The targeted user
+/* function kawaiipic(command) { 
+	if (command.split(' ') [0] === '/kawaii') { 
+	targetUser8 = command.slice(8,255); 
 	var picture = ["http://i.imgur.com/Vtgj9ay.gif","http://i.imgur.com/VB572y3.png","http://i.imgur.com/a1NE7Wc.jpg","http://i.imgur.com/jC8E4Nq.jpg","http://puu.sh/iaSR7.jpg"]; //list of Pictures
-	var randomPic = picture[Math.floor(Math.random()*picture.length)]; //Selects the picture 
-		API.sendChat(targetUser8 + ' ' + randomPic); //posts in chat
+	var randomPic = picture[Math.floor(Math.random()*picture.length)]; 
+		API.sendChat(targetUser8 + ' ' + randomPic);
  }
 }
-API.on(API.CHAT_COMMAND,kawaiipic)
+API.on(API.CHAT_COMMAND,kawaiipic) */
 
 function fiteuser(command) { //Function fite user kekeke
 	if (command.split(' ') [0] === '/fite' ) { //if the command is /fite do below

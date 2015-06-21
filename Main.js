@@ -133,7 +133,6 @@ if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
 var UserCount = API.getUsers().length; //user count in room
 targetUser9 = ("[" + command.slice(9,355) + "]"); //Targeted user
 var MehCalc = Math.floor((UserCount - 100) / 10);
-API.sendChat("There are " + UserCount + " Users in the room.")   
 	if (UserCount > 350) { 
 	//	API.sendChat("Users currently in room - " + UserCount)
 	API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");

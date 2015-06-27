@@ -31,9 +31,8 @@ var MehCalc = Math.floor(UserCount - 100) / 10;
 function autoRespond(data) { //the function to respond
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
-   if ((runCMD===true) && (isAFK===true)){
- //  if (isAFK === true) { //if you are afk Responder
-   // if (runCmd === true) { //if the cooldown is true then run cmds below
+   if (isAFK === true) { //if you are afk Responder
+    if (runCmd === true) { //if the cooldown is true then run cmds below
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
             API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
         }

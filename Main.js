@@ -10,7 +10,7 @@ var respondRCS = false; //responder for RCS
 var cmdRun = true; //for cooldown function
 var MaxMeh = 25;
 var MinMeh = 10;
-var AFKcooldown = "";
+var AFKcooldown = true;
 
 function cooldown() { //Cooldown cmds for 5s
  cmdRun = false;

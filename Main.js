@@ -31,7 +31,7 @@ function autoRespond(data) { //the function to respond
                  	
 		 API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!');//respond to who @mentioned you
 		 AFKcooldown = false;
-		 setTimeout(function(){AFKcooldown = true},10000);
+		 setTimeout(function(){AFKcooldown = true},60000);
         }
        }
     }

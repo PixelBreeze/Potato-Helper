@@ -28,9 +28,8 @@ var UserCount = API.getUsers().length; //user count in room
 var MehCalc = Math.floor(UserCount - 100) / 10;
 	API.chatLog(MehCalc.toString());
  }
- 
+if (message.split(currentUsername).length > 1) {
 function autoRespond(data) { //the function to respond
-   AFKcooldown(); //activates cooldown for X set min
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
    if (isAFK === true) { //if you are afk Responder
@@ -38,7 +37,7 @@ function autoRespond(data) { //the function to respond
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
             API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
         }
-           
+        
     }
     else {
   	API.chatLog("Cooldown there!");  
@@ -49,6 +48,7 @@ function autoRespond(data) { //the function to respond
    console.log(fromUsername + ' > ' + message); //log the message in the console 
    }
   }
+}
 }
 API.on(API.CHAT,autoRespond); //bind the auto respond function to the chat event
 

@@ -37,13 +37,13 @@ function autoRespond(data) { //the function to respond
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
             API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
         }
-           AFKcooldown(); //activates cooldown for X set min
+           
     }
     else {
   	API.chatLog("Cooldown there!");  
   }
+   AFKcooldown(); //activates cooldown for X set min
  }
- 
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
    console.log(fromUsername + ' > ' + message); //log the message in the console 

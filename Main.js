@@ -11,12 +11,6 @@ var cmdRun = true; //for cooldown function
 var MaxMeh = 25;
 var MinMeh = 10;
 
-function AFKcooldown() { //used only for AFK cmd.
-API.chatLog("Cooldown Activated");
- runCmd = false;
-  setTimeout(function(){runCmd = true},10000);
- }
-
 function cooldown() { //Cooldown cmds for 5s
  cmdRun = false;
   setTimeout(function(){cmdRun = true},5000); //timeout cmd - sets after 5000ms cmdRun to true
@@ -31,12 +25,10 @@ function autoRespond(data) { //the function to respond
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
    if (isAFK === true) { //if you are afk Responder
-    if (runCmd === true) { //if the cooldown is true then run cmds below
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
             setTimeout(function(){  API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); }, 30000);//respond to who @mentioned you
         }
     }
-  }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
    console.log(fromUsername + ' > ' + message); //log the message in the console 

@@ -28,7 +28,6 @@ var UserCount = API.getUsers().length; //user count in room
 var MehCalc = Math.floor(UserCount - 100) / 10;
 	API.chatLog(MehCalc.toString());
  }
-if (message.split(currentUsername).length > 1) {
 function autoRespond(data) { //the function to respond
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
@@ -39,16 +38,12 @@ function autoRespond(data) { //the function to respond
         }
         
     }
-    else {
-  	API.chatLog("Cooldown there!");  
   }
- }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
    console.log(fromUsername + ' > ' + message); //log the message in the console 
    }
   }
-}
 }
 API.on(API.CHAT,autoRespond); //bind the auto respond function to the chat event
 

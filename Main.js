@@ -38,10 +38,11 @@ function autoRespond(data) { //the function to respond
         }
 		AFKcooldown(); //activates cooldown for X set min
     }
-  }
-  else {
+    else {
   	API.chatLog("Cooldown there!");  
   }
+ }
+  
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
    console.log(fromUsername + ' > ' + message); //log the message in the console 

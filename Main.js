@@ -40,7 +40,7 @@ function autoRespond(data) { //the function to respond
     }
   }
   else {
-  	API.chatLog("Cooldown there!");  }
+  	API.chatLog("Cooldown there!");  
   }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)

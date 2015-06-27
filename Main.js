@@ -30,6 +30,7 @@ var MehCalc = Math.floor(UserCount - 100) / 10;
  }
  
 function autoRespond(data) { //the function to respond
+   AFKcooldown(); //activates cooldown for X set min
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
    if (isAFK === true) { //if you are afk Responder
@@ -42,7 +43,6 @@ function autoRespond(data) { //the function to respond
     else {
   	API.chatLog("Cooldown there!");  
   }
-   AFKcooldown(); //activates cooldown for X set min
  }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)

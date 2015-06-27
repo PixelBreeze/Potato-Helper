@@ -35,7 +35,6 @@ function autoRespond(data) { //the function to respond
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
             API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
         }
-      AFKcooldown();  
     }
   }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
@@ -61,7 +60,6 @@ function AfkMessage(command) { //the function to change the afk message
 API.on(API.CHAT_COMMAND,AfkMessage) //bind the afk message change function to the command event
 
 function rcsMsg(command) { //Function for pretyped rcs msg.
- if (runCmd === true) {
 	if (command.split(' ') [0] === '/rcs') { //if the command is /rcs
 		targetUser5 = command.slice(5,255); //The targeted user
 		respondRCS = true; //Activates the responder function
@@ -69,8 +67,6 @@ function rcsMsg(command) { //Function for pretyped rcs msg.
 		API.sendChat(targetUser5 + " Link to RCS home page: https://rcs.radiant.dj/ just drag the RCS button above to your bookmarks bar, and you're good to go!"); //sends The Link @targetUser
 		respondRCS = false; //or else chat explodes
 	}
-	}
-cooldown(); //cooldowns functions for 5s
 }
 }
 API.on(API.CHAT_COMMAND,rcsMsg)

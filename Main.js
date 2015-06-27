@@ -10,6 +10,7 @@ var respondRCS = false; //responder for RCS
 var cmdRun = true; //for cooldown function
 var MaxMeh = 25;
 var MinMeh = 10;
+var AFKcooldown = "";
 
 function cooldown() { //Cooldown cmds for 5s
  cmdRun = false;
@@ -24,10 +25,15 @@ var MehCalc = Math.floor(UserCount - 100) / 10;
 function autoRespond(data) { //the function to respond
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
-   if (isAFK === true) { //if you are afk Responder
-        if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-            setTimeout(function(){  API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); }, 30000);//respond to who @mentioned you
+   if (isAFK === true) { //if you are afk Respond
+        if (message.split(currentUsername).length > 1) {//if you are mentioned (so if @yourname is in the message)
+        	if (AFKcooldown === true) {
+                 	
+		 API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!');//respond to who @mentioned you
+		 AFKcooldown = false;
+		 setTimeout(function(){AFKcooldown = true},10000);
         }
+       }
     }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)

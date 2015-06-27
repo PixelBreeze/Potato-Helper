@@ -14,7 +14,7 @@ var MinMeh = 10;
 
 function AFKcooldown() { //used only for AFK cmd.
  runCmd = false;
-  setTimeout(function(){runCmd = true},60000);
+  setTimeout(function(){runCmd = true},10000);
  }
 
 function cooldown() { //Cooldown cmds for 5s

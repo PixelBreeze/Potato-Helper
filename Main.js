@@ -7,7 +7,6 @@ var currentUsername = '@' + API.getUser().username; //the @name of the person wh
 var afkReason = 'I am AFK right now!'; //standard afk reason
 var isAFK = false; //you are standard not afk
 var respondRCS = false; //responder for RCS
-var runCmd = true; //for AFKcooldown function
 var cmdRun = true; //for cooldown function
 var MaxMeh = 25;
 var MinMeh = 10;
@@ -36,7 +35,7 @@ function autoRespond(data) { //the function to respond
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
             API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
         }
-        
+      AFKcooldown();  
     }
   }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 

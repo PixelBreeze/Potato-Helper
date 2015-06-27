@@ -33,7 +33,7 @@ function autoRespond(data) { //the function to respond
    if (isAFK === true) { //if you are afk Responder
     if (runCmd === true) { //if the cooldown is true then run cmds below
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-            API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
+            setTimeout(function(){  API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); }, 30000);//respond to who @mentioned you
         }
     }
   }

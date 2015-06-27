@@ -34,14 +34,14 @@ function autoRespond(data) { //the function to respond
    if (runCmd === true) { //if the cooldown is true then run cmds below
     if (isAFK === true) { //if you are afk Responder
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-            API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
+            API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!'); //respond to who @mentioned you
         }
 		AFKcooldown(); //activates cooldown for X set min
     }
   }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-   console.log(fromUsername + ' > ' + message); //log the message in the console 
+   console.log(fromUsername + ' > ' + message.split(currentUsername).length > 1 + message); //log the message in the console 
    }
   }
 }

@@ -29,7 +29,7 @@ function autoRespond(data) { //the function to respond
         if (message.split(currentUsername).length > 1) {//if you are mentioned (so if @yourname is in the message)
         	if (AFKcooldown === true) {
                  	
-		 API.chatLog('@' + fromUsername + ' [AFK] ' + afkReason + ' Your messages are being logged. I will look at them when I get back!');//respond to who @mentioned you
+		 API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason + ' | Your messages are being logged. I will look at them when I get back!');//respond to who @mentioned you
 		 AFKcooldown = false;
 		 setTimeout(function(){AFKcooldown = true},60000);
         }
@@ -47,7 +47,7 @@ function AfkMessage(command) { //the function to change the afk message
     if (command.split(' ')[0] === '/afk') { //if the command is /afk
         isAFK = true; //you are now afk
         afkReason = command.slice(5,255); //set the afk reason
-	API.chatLog(' [Going AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
+	API.sendChat(' [Going AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
 		alert('|PH| When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode
 	}
 	if (command.split(' ')[0] === '/back') {	//When you are back and no longer AFK must type /back

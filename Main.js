@@ -23,6 +23,7 @@ var MehCalc = Math.floor(UserCount - 100) / 10;
 	API.chatLog(MehCalc.toString());
  }
 function autoRespond(data) { //the function to respond
+   var timeStamp = Date().substring(16,24) 
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
    if (isAFK === true) { //if you are afk Respond
@@ -37,7 +38,7 @@ function autoRespond(data) { //the function to respond
     }
   if (isAFK === true) { //Logs msgs @me in console when you are in AFK mode. 
    if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-   console.log(fromUsername + ' > ' + message); //log the message in the console 
+   console.log("[" + timeStamp + "] " + fromUsername + ' > ' + message); //log the message in the console 
    }
   }
 }

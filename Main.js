@@ -145,7 +145,7 @@ API.on(API.CHAT_COMMAND,mehrule)
 
 function GlobalCommands(data) {
 	var username = data.un;
-	switch (message.split(' ')[0]) {
+	switch (data.message.split(' ')[0]) {
 		case '!join':
 			API.sendChat('[@' + username + "] This command doesn't exist here! To join the waitlist you must join it manually or use an auto-join script like - https://rcs.radiant.dj");
 			break;

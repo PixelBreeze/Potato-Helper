@@ -150,9 +150,11 @@ function GlobalCommands(data) {
 			API.sendChat('[@' + username + "] This command doesn't exist here! To join the waitlist you must join it manually or use an auto-join script like - https://rcs.radiant.dj");
 			break;
 		case 'skip':
+			 if(/^.*(?!skips|skipped|history|no|don't|dont|not|why).*skip.*$/i.test(data.message)){
 			var senderUsername = ('@' + data.un);
      			API.moderateDeleteChat(data.cid);
 			API.sendChat(senderUsername + " Please don't ask for skips!");
+		}
 	}
 }
 API.on(API.CHAT,GlobalCommands)

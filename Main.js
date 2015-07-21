@@ -147,8 +147,9 @@ function GlobalCommands(data) {
 	var username = data.un;
 	switch (data.message.split(' ')[0]) {
 		case '!join':
+			if(API.getUser(data.uid).role === 0){ 
 			API.sendChat('[@' + username + "] This command doesn't exist here! To join the waitlist you must join it manually or use an auto-join script like - https://rcs.radiant.dj");
-			break;
+			break; }
 		case 'skip':
 			if(API.getUser(data.uid).role === 0){ 
 			 if(/^.*(?!skips|skipped|history|no|don't|dont|not|why).*skip.*$/i.test(data.message)){

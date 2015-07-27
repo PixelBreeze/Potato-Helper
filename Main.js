@@ -23,7 +23,10 @@ var UserCount = API.getUsers().length; //user count in room
 var MehCalc = Math.floor(UserCount - 100) / 10;
 	API.chatLog(MehCalc.toString());
  }
-function autoRespond(data) { //the function to respond
+ 
+API.on(API.CHAT,PHchatCommands);
+
+function PHchatCommands(data) { //the function to respond
    var timeStamp = Date().substring(16,24) 
    var message = data.message; //the received message
    var fromUsername = data.un; //who sent the message
@@ -42,10 +45,6 @@ function autoRespond(data) { //the function to respond
    console.log("[" + timeStamp + "] " + fromUsername + ' > ' + message); //log the message in the console 
    }
   }
-}
-API.on(API.CHAT,autoRespond); //bind the auto respond function to the chat event
-
-function AfkMessage(command) { //the function to change the afk message
     if (command.split(' ')[0] === '/afk') { //if the command is /afk
         isAFK = true; //you are now afk
         afkReason = command.slice(5,255); //set the afk reason
@@ -56,10 +55,7 @@ function AfkMessage(command) { //the function to change the afk message
 	    API.chatLog('Welcome back! AFK mode has been turned off.');
 		isAFK = false; //you are now no longer afk
 	}
-}
-API.on(API.CHAT_COMMAND,AfkMessage) //bind the afk message change function to the command event
-
-function rcsMsg(command) { //Function for pretyped rcs msg.
+//-------
 	if (command.split(' ') [0] === '/rcs') { //if the command is /rcs
 		targetUser5 = command.slice(5,255); //The targeted user
 		respondRCS = true; //Activates the responder function
@@ -68,17 +64,11 @@ function rcsMsg(command) { //Function for pretyped rcs msg.
 		respondRCS = false; //or else chat explodes
 	}
 }
-}
-API.on(API.CHAT_COMMAND,rcsMsg)
-
-function listcmds(command) { //Function for listing cmds
+//--------
 	if (command.split(' ') [0] === '/cmds') { //if the command is /cmds lists CMDS
 		API.chatLog('|PH| Available Commands For Potato Helper: https://github.com/PixelBreeze/Potato-Helper/blob/master/PotatoCommands.md - and more to come! Msg PixelBreezeNC for any suggestions.')
  }
-}
-API.on(API.CHAT_COMMAND,listcmds)
-
-function slotmachine(command) { //Function Play slot machine with urself
+//--------
 	if (command.split(' ') [0] === '/slots') { //activates slot machine when /slot in chat
 		var slotItem = [":cherries:",":pineapple:",":apple:",":gift:",":pear:",":banana:",":watermelon:"]; //Items listed in slotmachine
 		var slot1 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot1
@@ -92,8 +82,7 @@ function slotmachine(command) { //Function Play slot machine with urself
 			API.chatLog("Better Luck Next Time."); //you loose msg
 	}
   }
-}
-API.on(API.CHAT_COMMAND,slotmachine)
+
 
 /* function kawaiipic(command) { 
 	if (command.split(' ') [0] === '/kawaii') { 
@@ -104,26 +93,20 @@ API.on(API.CHAT_COMMAND,slotmachine)
  }
 }
 API.on(API.CHAT_COMMAND,kawaiipic) */
-
-function fiteuser(command) { //Function fite user kekeke
+//-------
 	if (command.split(' ') [0] === '/fite' ) { //if the command is /fite do below
 	targetUser6 = command.slice(6,355); //Targeted user
 	var outcomes = [currentUsername  + " passes out before the fight starts.",targetUser6 + " gets stabbed and dies.",targetUser6 + " ascends to heaven.","Both get knocked out.",currentUsername + " runs at " + targetUser6 + ", but trips and hits head.",targetUser6 + " is unconscious.",currentUsername + " Swings at " + targetUser6 + ", but accidentally hits @donvoo",targetUser6 + " Wins!",currentUsername + " Wins!"];
 	var outcome = outcomes[Math.floor(Math.random()*outcomes.length)];
 		API.sendChat(currentUsername + " fites " + targetUser6 + " - " + outcome);
 	}
-}
-API.on(API.CHAT_COMMAND,fiteuser)
 
-function mms(command) { //Meh mute shush function
+//------
 if (command.split(' ') [0] === '/mms' ) { //if the command is /mms do below
 	targetUser5 = command.slice(5,355); //Targeted user
 	API.sendChat(targetUser5 + " Please don't ask for skips. Meh and mute the song");
  	}
-}
-API.on(API.CHAT_COMMAND,mms)
-
-function mehrule(command) { //Meh mute shush function
+//------
 if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
 var UserCount = API.getUsers().length; //user count in room
 targetUser9 = ("[" + command.slice(9,355) + "]"); //Targeted user
@@ -141,8 +124,7 @@ var MehCalc = Math.floor((UserCount - 100) / 10);
 			}
 			
  }
-}
-API.on(API.CHAT_COMMAND,mehrule)
+} // final }
 
 function GlobalCommands(data) {
 	var username = data.un;

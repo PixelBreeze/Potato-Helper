@@ -24,7 +24,7 @@ var MehCalc = Math.floor(UserCount - 100) / 10;
 	API.chatLog(MehCalc.toString());
  }
  
-API.on(API.CHAT,PHchatCommands);
+API.on(API.CHAT_COMMAND,PHchatCommands);
 
 function PHchatCommands(data) { //the function to respond
    var timeStamp = Date().substring(16,24) 

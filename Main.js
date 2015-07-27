@@ -2,8 +2,8 @@
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
 $('head').append("<style>" + "#chat-messages .id-6175571 .badge-box i.bdg { background-image: url('http://i.imgur.com/QtZP01G.png'); background-size:cover; }" + "</style>");
-API.chatLog('Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds');
-API.chatLog('|PH| Credits: PixelBreezeNC, Zaro38');
+$('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
+$('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC, Zaro38</div>');
 var currentUsername = '@' + API.getUser().username; //the @name of the person who runs the script
 var afkReason = 'I am AFK right now!'; //standard afk reason
 var isAFK = false; //you are standard not afk

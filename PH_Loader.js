@@ -6,7 +6,7 @@ this.data = data;
   if (data === '/reloadph') {
       API.off(API.CHAT,GlobalCommands);
       API.off(API.CHAT_COMMAND,PHchatCommands);
-      API.chatLog("|PH|Reloading...");
+      API.chatLog("|PH| Reloading...");
       setTimeout(function(){$.getScript('https://rawgit.com/PixelBreeze/Potato-Helper/master/Main.js');},2000);
     }
   if (data ==='/phoff') {

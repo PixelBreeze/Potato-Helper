@@ -45,18 +45,18 @@ function PHchatCommands(data) { //the function to respond
    console.log("[" + timeStamp + "] " + fromUsername + ' > ' + message); //log the message in the console 
    }
   }
-    if (command.split(' ')[0] === '/afk') { //if the command is /afk
+    if (data === '/afk') { //if the command is /afk
         isAFK = true; //you are now afk
         afkReason = command.slice(5,255); //set the afk reason
 //	API.sendChat('/me [AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
 		alert('|PH| When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode
 	}
-	if (command.split(' ')[0] === '/back') {	//When you are back and no longer AFK must type /back
+	if (data === '/back') {	//When you are back and no longer AFK must type /back
 	    API.chatLog('Welcome back! AFK mode has been turned off.');
 		isAFK = false; //you are now no longer afk
 	}
 //-------
-	if (command.split(' ') [0] === '/rcs') { //if the command is /rcs
+	if (data === '/rcs') { //if the command is /rcs
 		targetUser5 = command.slice(5,255); //The targeted user
 		respondRCS = true; //Activates the responder function
 	if(respondRCS === true) { //RCS Link/Help Responder
@@ -65,11 +65,11 @@ function PHchatCommands(data) { //the function to respond
 	}
 }
 //--------
-	if (command.split(' ') [0] === '/cmds') { //if the command is /cmds lists CMDS
+	if (data === '/cmds') { //if the command is /cmds lists CMDS
 		API.chatLog('|PH| Available Commands For Potato Helper: https://github.com/PixelBreeze/Potato-Helper/blob/master/PotatoCommands.md - and more to come! Msg PixelBreezeNC for any suggestions.')
  }
 //--------
-	if (command.split(' ') [0] === '/slots') { //activates slot machine when /slot in chat
+	if (data === '/slots') { //activates slot machine when /slot in chat
 		var slotItem = [":cherries:",":pineapple:",":apple:",":gift:",":pear:",":banana:",":watermelon:"]; //Items listed in slotmachine
 		var slot1 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot1
 		var slot2 = slotItem[Math.floor(Math.random()*slotItem.length)]; //Selects slot2
@@ -94,7 +94,7 @@ function PHchatCommands(data) { //the function to respond
 }
 API.on(API.CHAT_COMMAND,kawaiipic) */
 //-------
-	if (command.split(' ') [0] === '/fite' ) { //if the command is /fite do below
+	if (data === '/fite' ) { //if the command is /fite do below
 	targetUser6 = command.slice(6,355); //Targeted user
 	var outcomes = [currentUsername  + " passes out before the fight starts.",targetUser6 + " gets stabbed and dies.",targetUser6 + " ascends to heaven.","Both get knocked out.",currentUsername + " runs at " + targetUser6 + ", but trips and hits head.",targetUser6 + " is unconscious.",currentUsername + " Swings at " + targetUser6 + ", but accidentally hits @donvoo",targetUser6 + " Wins!",currentUsername + " Wins!"];
 	var outcome = outcomes[Math.floor(Math.random()*outcomes.length)];
@@ -102,12 +102,12 @@ API.on(API.CHAT_COMMAND,kawaiipic) */
 	}
 
 //------
-if (command.split(' ') [0] === '/mms' ) { //if the command is /mms do below
+if (data === '/mms' ) { //if the command is /mms do below
 	targetUser5 = command.slice(5,355); //Targeted user
 	API.sendChat(targetUser5 + " Please don't ask for skips. Meh and mute the song");
  	}
 //------
-if (command.split(' ') [0] === '/mehrule' ) { //if the command is /mms do below
+if (data === '/mehrule' ) { //if the command is /mms do below
 var UserCount = API.getUsers().length; //user count in room
 targetUser9 = ("[" + command.slice(9,355) + "]"); //Targeted user
 var MehCalc = Math.floor((UserCount - 100) / 10);

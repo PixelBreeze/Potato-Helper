@@ -8,5 +8,9 @@ this.data = data;
       API.off(API.CHAT_COMMAND,PHchatCommands);
       setTimeout(function(){$.getScript('https://rawgit.com/PixelBreeze/Potato-Helper/master/Main.js');},2000);
     }
+  if (data ==='/phoff') {
+    API.off(API.CHAT,GlobalCommands);
+    API.off(API.CHAT_COMMAND,PHchatCommands);
   }
-  //javascript:(function(){$.getScript('https://rawgit.com/PixelBreeze/Potato-Helper/master/Main.js');}());
+  }
+  //javascript:(function(){$.getScript('https://rawgit.com/PixelBreeze/Potato-Helper/master/PH_Loader.js');}());

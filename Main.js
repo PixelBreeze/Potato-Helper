@@ -1,7 +1,7 @@
 //Potato-Helper
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
-$('head').append("<style>" + "#chat-messages .id-6175571 .badge-box i.bdg { background-image: url('http://i.imgur.com/CEcxRD2.png'); background-size:cover; }" + "</style>");
+$('head').append("<style>" + "#chat-messages .id-6175571 .badge-box i.bdg { background-image: url('http://i.imgur.com/QtZP01G.png'); background-size:cover; }" + "</style>");
 API.chatLog('Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds');
 API.chatLog('|PH| Credits: PixelBreezeNC, Zaro38');
 var currentUsername = '@' + API.getUser().username; //the @name of the person who runs the script
@@ -156,7 +156,10 @@ function GlobalCommands(data) {
 			 if(/^.*(?!skips|skipped|history|no|don't|dont|not|why).*skip.*$/i.test(data.message)){
 			var senderUsername = ('@' + data.un);
      			API.moderateDeleteChat(data.cid);
+     			if(cmdRun === true){
 			API.sendChat(senderUsername + " Please don't ask for skips!");
+			cooldown();
+     				}
 			 }
 		}
 	}

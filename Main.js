@@ -2,8 +2,6 @@
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
 $('head').append("<style> [data-cid^="6175571"] .msg .from .un { color: rgba(54, 179, 215, 1) !important; } </style>");
-$('head').append("<style>" + "#chat-messages .id-6175571 .badge-box i.bdg { background-image: url('http://i.imgur.com/JdcjpNI.png'); background-size:cover; }" + "</style>");
-$('head').append("<style>" + "#chat-messages .id-3440313 .badge-box i.bdg { background-image: url('http://i.imgur.com/JdcjpNI.png'); background-size:cover; }" + "</style>"); //ARROWS BADGE
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
 $('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC, Zaro38</div>');
 var currentUsername = '@' + API.getUser().username; //the @name of the person who runs the script http://i.imgur.com/JdcjpNI.png http://i.imgur.com/QtZP01G.png

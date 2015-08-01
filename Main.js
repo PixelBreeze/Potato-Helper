@@ -109,7 +109,7 @@ if (data === '/mms' ) { //if the command is /mms do below
 //------
 if (data === '/mehrule' ) { //if the command is /mms do below
 var UserCount = API.getUsers().length; //user count in room
-targetUser9 = ("[" + command.slice(9,355) + "]"); //Targeted user
+targetUser9 = ("[" + data.slice(9,355) + "]"); //Targeted user
 var MehCalc = Math.floor((UserCount - 100) / 10);
 	if (UserCount > 350) { 
 	//	API.sendChat("Users currently in room - " + UserCount)

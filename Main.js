@@ -30,7 +30,7 @@ API.on(API.CHAT_COMMAND, PHchatCommands);
 
 function PHchatCommands(data) { //the function to respond
     var timeStamp = Date().substring(16, 24)
-    var message = data.message; //the received message
+    var message = data; //the received message
     var fromUsername = data.un; //who sent the message
     if (isAFK === true) { //if you are afk Respond
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
@@ -116,6 +116,25 @@ function PHchatCommands(data) { //the function to respond
 } // final }
 
 function GlobalCommands(data) {
+   //---------------------- 
+    PHchatCommands(data.message);
+    var fromUsername = data.un; //who sent the message
+    if (isAFK === true) { //if you are afk Respond
+        if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
+            if (AFKcooldown === true) {
+
+                API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason + ' | I will respond when I get back!'); //respond to who @mentioned you
+                AFKcooldown = false;
+                setTimeout(function() {
+                    AFKcooldown = true
+                }, 60000);
+            }
+        }
+  if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
+            console.log("[" + timeStamp + "] " + fromUsername + ' > ' + message); //log the message in the console 
+        }
+    }
+    //-------------------------
     var username = data.un;
     switch (data.message.split(' ')[0]) {
         case '!join':

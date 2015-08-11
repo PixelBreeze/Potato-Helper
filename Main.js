@@ -1,7 +1,7 @@
 //Potato-Helper
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
-$('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(255, 0, 47, 1) !important; } </style>');
+$('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(255, 215, 0, 1) !important; } </style>');
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
 $('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC, Zaro38</div>');
 var currentUsername = '@' + API.getUser().username; //the @name of the person who runs the script http://i.imgur.com/JdcjpNI.png http://i.imgur.com/QtZP01G.png
@@ -117,42 +117,39 @@ function PHchatCommands(data) { //the function to respond
 
 function GlobalCommands(data) {
    //---------------------- 
-    PHchatCommands(data.message);
-    var fromUsername = data.un; //who sent the message
+    var username = data.un;
+    var message = data.message;
     if (isAFK === true) { //if you are afk Respond
-        if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
+        if (message.indexOf(currentUsername) > -1) { //if you are mentioned (so if @yourname is in the message)
             if (AFKcooldown === true) {
-
-                API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason + ' | I will respond when I get back!'); //respond to who @mentioned you
+                API.sendChat('@' + username + ' [AFK] ' + afkReason + ' | I will respond when I get back!'); //respond to who @mentioned you
                 AFKcooldown = false;
                 setTimeout(function() {
                     AFKcooldown = true
                 }, 60000);
             }
-        }
-  if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
-            console.log("[" + timeStamp + "] " + fromUsername + ' > ' + message); //log the message in the console 
+            console.log("[" + new Date().toLocaleString() + "] " + username + ' > ' + message); //log the message in the console 
         }
     }
     //-------------------------
     var username = data.un;
-    switch (data.message.split(' ')[0]) {
-        case '!join':
-            if (API.getUser(data.uid).role === 0) {
+    switch (message.split(' ')[0]) {
+       case '!join':
+          if (API.getUser(data.uid).role === 0) {
                 API.sendChat('[@' + username + "] This command doesn't exist here! To join the waitlist you must join it manually or use an auto-join script like - https://rcs.radiant.dj");
-                break;
-            }
-        case 'skip':
-            if (API.getUser(data.uid).role === 0) {
-                if (/^.*(?!skips|skipped|history|no|don't|dont|not|why).*skip.*$/i.test(data.message)) {
-                    var senderUsername = ('@' + data.un);
-                    API.moderateDeleteChat(data.cid);
-                    if (cmdRun === true) {
-                        API.sendChat(senderUsername + " Please don't ask for skips!");
-                        cooldown();
-                    }
-                }
-            }
+               break;
+           }
+       case 'skip':
+           if (API.getUser(data.uid).role === 0) {
+               if (/^.*(?!skips|skipped|history|no|don't|dont|not|why).*skip.*$/i.test(data.message)) {
+                  var senderUsername = ('@' + data.un);
+                  API.moderateDeleteChat(data.cid);
+                	 if (cmdRun === true) {
+                		 API.sendChat(senderUsername + " Please don't ask for skips!");                  
+                		 cooldown();
+                   }
+             }
+          }
     }
 }
 API.on(API.CHAT, GlobalCommands)

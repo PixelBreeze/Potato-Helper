@@ -139,6 +139,24 @@ function GlobalCommands(data) {
                 API.sendChat('[@' + username + "] This command doesn't exist here! To join the waitlist you must join it manually or use an auto-join script like - https://rcs.radiant.dj");
                break;
            }
+       case '!stream':
+       	  function checkStream(nightcore331){
+		$.ajax({ 
+			 url:'https://api.twitch.tv/kraken/streams/' + streamUrl,
+			 dataType:'jsonp',
+				 success:function(channel) { 
+        			 if (typeof channel.error !== 'undefined') {
+            				console.log("Error");
+					 }
+       				else if(channel.stream === null){
+        				console.log("Offline");
+					 }
+       				else {
+					 console.log("Online");
+					 }
+				 }
+			});
+		}
        case 'skip':
            if (API.getUser(data.uid).role === 0) {
                if (/^.*(?!skips|skipped|history|no|don't|dont|not|why).*skip.*$/i.test(data.message)) {

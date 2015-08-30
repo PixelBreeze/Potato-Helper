@@ -1,7 +1,7 @@
 //Potato-Helper
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
-API.chatLog('Current version: 1.3');
+API.sendChat('Current version: 1.4');
 $('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(250, 5, 54, 1) !important; } </style>');
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
 $('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC, Zaro38</div>');
@@ -22,17 +22,17 @@ function cooldown() { //Cooldown cmds for 5s
   
   function checkStream(){
 		$.ajax({ 
-			 url:'https://api.twitch.tv/kraken/streams/l96alex',
+			 url:'https://api.twitch.tv/kraken/streams/nightcore331',
 			 dataType:'jsonp',
 				 success:function(channel) { 
         			 if (typeof channel.error !== 'undefined') {
             				API.sendChat("Error");
 					 }
        				else if(channel.stream === null){
-        				API.sendChat("Twitch Stream Currently Is Offline");
+        				API.sendChat("Stream Currently Is Offline");
 					 }
        				else {
-					 API.sendChat("Nightcore331 is live on twitch playing " + channel.stream.game + " With " + channel.stream.viewers + "viewers.");
+					 API.sendChat("http://www.twitch.tv/nightcore331 is live on twitch playing [" + channel.stream.game + "] With " + channel.stream.viewers + " viewers.");
 					 }
 				 }
 			});

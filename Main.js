@@ -22,7 +22,7 @@ function cooldown() { //Cooldown cmds for 5s
   
   function checkStream(){
 		$.ajax({ 
-			 url:'https://api.twitch.tv/kraken/streams/' + nightcore331,
+			 url:'https://api.twitch.tv/kraken/streams/nightcore331',
 			 dataType:'jsonp',
 				 success:function(channel) { 
         			 if (typeof channel.error !== 'undefined') {

@@ -1,7 +1,7 @@
 //Potato-Helper
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
-API.chatLog('PH version: 1.6');
+API.chatLog('PH version: 1.7');
 $('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(250, 5, 54, 1) !important; } </style>');
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
 $('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC, Zaro38</div>');
@@ -12,6 +12,8 @@ var cmdRun = true; //for cooldown function
 var MaxMeh = 25;
 var MinMeh = 10;
 var AFKcooldown = true;
+var currentChannel = 'nightcore331'; //default channel for !stream
+var currentUsername = 
 
 function cooldown() { //Cooldown cmds for 5s
     cmdRun = false;
@@ -22,17 +24,17 @@ function cooldown() { //Cooldown cmds for 5s
   
   function checkStream(){
 		$.ajax({ 
-			 url:'https://api.twitch.tv/kraken/streams/l96alex',
+			 url:'https://api.twitch.tv/kraken/streams/' + currentChannel,
 			 dataType:'jsonp',
 				 success:function(channel) { 
         			 if (typeof channel.error !== 'undefined') {
-            				API.sendChat("Error");
+            				API.sendChat("undefined user!");
 					 }
        				else if(channel.stream === null){
-        				API.sendChat("Stream Currently Is Offline");
+        				API.sendChat( currentChannel + "'s Stream Currently Is Offline");
 					 }
        				else {
-					 API.sendChat("http://www.twitch.tv/l96alex is live on twitch playing [" + channel.stream.game + "] With " + channel.stream.viewers + " viewers.");
+					 API.sendChat("http://www.twitch.tv/" + currentChannel + " is LIVE playing " + channel.stream.game + " With " + channel.stream.viewers + " viewers.");
 					 }
 				 }
 			});
@@ -159,6 +161,9 @@ function GlobalCommands(data) {
            }
        case '!stream':
        		checkStream();
+		break;
+       case '!setstream':
+			var currentChannel = data.slice(6, 355);
 		break;
        case 'skip':
            if (API.getUser(data.uid).role === 0) {

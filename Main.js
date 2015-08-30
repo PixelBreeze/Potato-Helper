@@ -1,7 +1,7 @@
 //Potato-Helper
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
-API.chatLog('PH version: 1.5');
+API.chatLog('PH version: 1.6');
 $('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(250, 5, 54, 1) !important; } </style>');
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
 $('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC, Zaro38</div>');
@@ -22,7 +22,7 @@ function cooldown() { //Cooldown cmds for 5s
   
   function checkStream(){
 		$.ajax({ 
-			 url:'https://api.twitch.tv/kraken/streams/l96alex ',
+			 url:'https://api.twitch.tv/kraken/streams/l96alex',
 			 dataType:'jsonp',
 				 success:function(channel) { 
         			 if (typeof channel.error !== 'undefined') {

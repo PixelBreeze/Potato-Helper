@@ -157,6 +157,7 @@ function GlobalCommands(data) {
 				 }
 			});
 		}
+		break;
        case 'skip':
            if (API.getUser(data.uid).role === 0) {
                if (/^.*(?!skips|skipped|history|no|don't|dont|not|why).*skip.*$/i.test(data.message)) {

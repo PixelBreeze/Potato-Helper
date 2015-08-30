@@ -29,10 +29,10 @@ function cooldown() { //Cooldown cmds for 5s
             				API.sendChat("Error");
 					 }
        				else if(channel.stream === null){
-        				API.sendChat("Offline");
+        				API.sendChat("Stream Currently Is Offline");
 					 }
        				else {
-					 API.sendChat("Online");
+					 API.sendChat("Nightcore331 is live on twitch playing " + channel.stream.game + " With " channel.stream.viewers + "viewers.");
 					 }
 				 }
 			});

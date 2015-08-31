@@ -163,7 +163,7 @@ function GlobalCommands(data) {
        		checkStream();
 		break;
        case '!setstream':
-			var currentChannel = message.slice(11, 355);
+			var currentChannel = data.slice(11, 255);
 		break;
        case 'skip':
            if (API.getUser(data.uid).role === 0) {

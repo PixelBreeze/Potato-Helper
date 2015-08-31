@@ -13,7 +13,8 @@ var MaxMeh = 25;
 var MinMeh = 10;
 var AFKcooldown = true;
 var currentUsername = '@' + API.getUser().username; //username of the script host
-
+var currentChannel = 'nightcore331'; //default channel for !stream
+ 
 function cooldown() { //Cooldown cmds for 5s
     cmdRun = false;
     setTimeout(function() {
@@ -152,7 +153,7 @@ function GlobalCommands(data) {
     }
     //-------------------------
     var username = data.un;
-    var currentChannel = 'nightcore331'; //default channel for !stream
+   
     switch (message.split(' ')[0]) {
        case '!join':
           if (API.getUser(data.uid).role === 0) {

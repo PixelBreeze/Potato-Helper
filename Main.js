@@ -163,8 +163,7 @@ function GlobalCommands(data) {
        		checkStream();
 		break;
        case '!setstream':
-			var currentChannel = data.slice(11,155);
-				console.log("Data: " + data + " sliced: " + data.slice(11,155));
+			var currentChannel = message.split(' ')[1]
 		break;
        case 'skip':
            if (API.getUser(data.uid).role === 0) {

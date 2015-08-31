@@ -163,7 +163,7 @@ function GlobalCommands(data) {
        		checkStream();
 		break;
        case '!setstream':
-			currentChannel = data.slice(11,155);
+			var currentChannel = data.slice(11,155);
 				console.log("Data: " + data + " sliced: " + data.slice(11,155));
 		break;
        case 'skip':

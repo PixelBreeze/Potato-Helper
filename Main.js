@@ -1,7 +1,7 @@
 //Potato-Helper
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
-API.chatLog('PH version: 2.5');
+API.chatLog('PH version: 2.6');
 $('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(250, 5, 54, 1) !important; } </style>'); //makes my name red n stuff
 $('head').append('<link rel="stylesheet" href="https://rawgit.com/PixelBreeze/Potato-Helper/master/PH_CSS.css" type="text/css"/>');
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
@@ -16,14 +16,6 @@ var AFKcooldown = true;
 var currentUsername = '@' + API.getUser().username; //username of the script host
 var currentChannel = 'nightcore331'; //default channel for !stream
 
-if (isAFK === true) {
-	$("#afkbutton").remove();
-	$('body').append('<div id="afkbutton" style="background-color: #5EFF00;">AFK MODE</div>');
-} else {
-	$("#afkbutton").remove();
-	$('body').append('<div id="afkbutton" style="background-color: #FF0000;">AFK MODE</div>');	
-}
- 
 function cooldown() { //Cooldown cmds for 5s
     cmdRun = false;
     setTimeout(function() {
@@ -64,7 +56,7 @@ function PHchatCommands(data) { //the function to respond
     if (isAFK === true) { //if you are afk Respond
         if (message.split(currentUsername).length > 1) { //if you are mentioned (so if @yourname is in the message)
             if (AFKcooldown === true) {
-
+		
                 API.sendChat('@' + fromUsername + ' [AFK] ' + afkReason + ' | I will respond when I get back!'); //respond to who @mentioned you
                 AFKcooldown = false;
                 setTimeout(function() {
@@ -83,6 +75,8 @@ function PHchatCommands(data) { //the function to respond
 	switch (phCommand){
 		case "/afk":
 			isAFK = true; //you are now afk
+			$("#afkbutton").remove();
+			$('body').append('<div id="afkbutton" style="background-color: #5EFF00;">AFK MODE</div>');
 			afkReason = data.slice(5, 255); //set the afk reason
 			//	API.sendChat('/me [AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
 			alert('|PH| When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode
@@ -90,6 +84,8 @@ function PHchatCommands(data) { //the function to respond
 		case "/back":
 			API.chatLog('Welcome back! AFK mode has been turned off.');
 			isAFK = false; //you are now no longer afk
+			$("#afkbutton").remove();
+			$('body').append('<div id="afkbutton" style="background-color: #FF0000;">AFK MODE</div>');
 			break;
 		case "/rcs":
 			var targetUser5 = data.slice(5, 255); //The targeted user

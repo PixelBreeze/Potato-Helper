@@ -1,7 +1,7 @@
 //Potato-Helper
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
-API.chatLog('PH version: 3.1');
+API.chatLog('PH version: 3.2');
 $('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(250, 5, 54, 1) !important; } </style>'); //makes my name red n stuff
 $('head').append('<link rel="stylesheet" href="https://rawgit.com/PixelBreeze/Potato-Helper/master/PH_CSS.css" type="text/css"/>');
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
@@ -75,7 +75,7 @@ function PHchatCommands(data) { //the function to respond
 	switch (phCommand){
 		case "/afk":
 			isAFK = true; //you are now afk
-			$('.chat-input').css('box-shadow', 'inset 0 0 0 2px #FB0000')
+			$('.focused').css('box-shadow', 'inset 0 0 0 2px #FB0000 !important')
 			afkReason = data.slice(5, 255); //set the afk reason
 			//	API.sendChat('/me [AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
 			alert('|PH| When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode

@@ -75,7 +75,7 @@ function PHchatCommands(data) { //the function to respond
 	switch (phCommand){
 		case "/afk":
 			isAFK = true; //you are now afk
-			$('.focused').css('box-shadow', 'inset 0 0 0 1px #FB0000 !important;')
+			$('#chat-input').css('background-color', '#FB0000')
 			afkReason = data.slice(5, 255); //set the afk reason
 			//	API.sendChat('/me [AFK] ' + afkReason); //sends in chat announcement about AFK with set reason
 			alert('|PH| When you are no longer AFK please disable AFK mode by typing /back'); //Alerts user to turn off AFK mode

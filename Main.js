@@ -2,7 +2,8 @@
 //Plug.dj Chat Utility Script. Fun and useful commands for chat.
 /*=====================================*/
 API.chatLog('PH version: 2.2');
-$('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(250, 5, 54, 1) !important; } </style>');
+$('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(250, 5, 54, 1) !important; } </style>'); //makes my name red n stuff
+$('head').append('<link rel="stylesheet" href="https://rawgit.com/PixelBreeze/Potato-Helper/master/PH_CSS.css" type="text/css"/>');
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
 $('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC, Zaro38</div>');
 var afkReason = 'I am AFK right now!'; //standard afk reason
@@ -14,6 +15,8 @@ var MinMeh = 10;
 var AFKcooldown = true;
 var currentUsername = '@' + API.getUser().username; //username of the script host
 var currentChannel = 'nightcore331'; //default channel for !stream
+
+$('body').append('<div id="afkbutton">AFK</div>');
  
 function cooldown() { //Cooldown cmds for 5s
     cmdRun = false;

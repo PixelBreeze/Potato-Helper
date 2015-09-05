@@ -17,8 +17,10 @@ var currentUsername = '@' + API.getUser().username; //username of the script hos
 var currentChannel = 'nightcore331'; //default channel for !stream
 
 if (isAFK === true) {
+	$("#afkbutton").remove();
 	$('body').append('<div id="afkbutton" style="background-color: #5EFF00;">AFK MODE</div>');
 } else {
+	$("#afkbutton").remove();
 	$('body').append('<div id="afkbutton" style="background-color: #FF0000;">AFK MODE</div>');	
 }
  

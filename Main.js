@@ -110,7 +110,7 @@ function PHchatCommands(data) { //the function to respond
 			break;
 		case "/fite":
 			var targetUser6 = data.slice(6, 355); //Targeted user
-			var outcomes = [currentUsername + " passes out before the fight starts.", targetUser6 + " gets stabbed and dies.", targetUser6 + " ascends to heaven.", "Both get knocked out.", currentUsername + " runs at " + targetUser6 + ", but trips and hits head.", targetUser6 + " is unconscious.", currentUsername + " Swings at " + targetUser6 + ", but accidentally hits @donvoo", targetUser6 + " Wins!", currentUsername + " Wins!"];
+			var outcomes = [currentUsername + " passes out before the fight starts.", targetUser6 + " gets stabbed and dies.", targetUser6 + " ascends to heaven.", "Both get knocked out.", currentUsername + " runs at " + targetUser6 + ", but trips and hits head.", targetUser6 + " is unconscious.", currentUsername + " throws a bomb at " + targetUser6 + ", but the bomb doesn't explode, sadly. Good job... " + currentUsername, currentUsername + " throws a bomb at " + targetUser6 + ". The bomb explodes and  " + targetUser6 + " dies from fatal injuries."];
 			var outcome = outcomes[Math.floor(Math.random() * outcomes.length)];
 			API.sendChat(currentUsername + " fites " + targetUser6 + " - " + outcome);
 			break;

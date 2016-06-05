@@ -5,7 +5,7 @@ API.chatLog('PH version: 3.3');
 $('body').append('<style> [data-cid^="6175571"] .msg .from .un { color: rgba(250, 5, 54, 1) !important; } </style>'); //makes my name red n stuff
 $('head').append('<link rel="stylesheet" href="https://rawgit.com/PixelBreeze/Potato-Helper/master/PH_CSS.css" type="text/css"/>');
 $('#chat-messages').append('<div style="width:300px;height:55px;border-left:3px solid cyan;"</div><i style="width:33px;height:30px;margin-left:5px;" class="icon icon-site-logo"></i><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">Welcome to Potato Helper! If you are a potato this utility is for you! List of commands - /cmds</div>');
-$('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC, Zaro38</div>');
+$('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px solid cyan;"</div><div style="color:cyan;height:25px;padding-left:45px;padding-top:7px;">|PH| Credits: PixelBreezeNC</div>');
 var afkReason = 'I am AFK right now!'; //standard afk reason
 var isAFK = false; //you are standard not afk
 var respondRCS = false; //responder for RCS
@@ -120,19 +120,19 @@ function PHchatCommands(data) { //the function to respond
 			break;
 		case "/mehrule":
 			var UserCount = API.getUsers().length; //user count in room
-			var targetUser9 = ("[" + data.slice(9, 355) + "]"); //Targeted user
+			var targetUser9 = ("" + data.slice(9, 355) + ""); //Targeted user
 			var MehCalc = Math.floor((UserCount - 100) / 10);
 			if (UserCount > 350) {
 				//	API.sendChat("Users currently in room - " + UserCount)
-				API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " there are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+				API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " There are " + MaxMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 			}
 			if (350 > UserCount) {
 				if (200 < UserCount) {
-					API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " there are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+					API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " There are " + MehCalc + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 				}
 			}
 			if (UserCount < 200) {
-				API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " there are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
+				API.sendChat("There are " + UserCount + " Users in the room. " + targetUser9 + " There are " + MinMeh + " Meh's needed to skip the current song. More Info Here - http://bit.ly/NC331R8");
 			}
 			break;
 	}

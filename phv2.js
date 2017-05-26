@@ -5,7 +5,7 @@ $('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px 
 
 //                  -------- VARS --------- 
 var PH = function () {
-	version = "0.2";
+	version = "0.3";
 	this.version = version;
 	scriptName= "[PH] ";
 	delay = 2;
@@ -13,8 +13,6 @@ var PH = function () {
 	currentChannel = ""
 	thisPH = this;
 };
-
-//                --------- API ------------
 
 //                 -------- Commands ----------
 
@@ -101,6 +99,9 @@ PH.prototype.checkStream = function(valu){
 		$.ajax({ 
 			 url:'https://api.twitch.tv/kraken/streams/' + valu,
 			 dataType:'jsonp',
+				headers: {
+     				 'Client-ID': t7l9dt4cfxlf1i7ff5z6zwnblk9cnk
+   				 }
 				 success:function(channel) { 
         			 if (typeof channel.error !== 'undefined') {
             				API.sendChat("undefined user!");
@@ -119,7 +120,7 @@ var phs = new PH();
 API.on(API.ADVANCE, phs.onAdvance);
 API.on(API.CHAT_COMMAND, phs.onCmd);
 
-function mehrulecalc() { //Calculates the needed mehs for a skip
+/*function mehrulecalc() { //Calculates the needed mehs for a skip
     var UserCount = API.getUsers().length; //user count in room
     var MehCalc = Math.floor(UserCount - 100) / 10;
     API.chatLog(MehCalc.toString());

@@ -9,19 +9,16 @@ var PH = function () {
 	this.version = version;
 	scriptName= "[PH] ";
 	delay = 2;
-	autoSkip = 0;
+	autoSkipVal = 0;
 	currentChannel = ""
 	thisPH = this;
 };
 
 //                --------- API ------------
 
-API.on(API.ADVANCE, PH.onAdvance);
-API.on(API.CHAT_COMMAND, PH.onCmd);
-
 //                 -------- Commands ----------
 
-PH.onCmd = function(value){
+PH.prototype.onCmd = function(value){
 	if(value.toLowerCase().startsWith("/autoskip")){
 		thisPH.autoSkipSwitch();
 		return;
@@ -42,23 +39,23 @@ PH.onCmd = function(value){
 };
 
 //                 -------- Functions ----------
-
-function cooldown() { //Cooldown cmds for 5s
-    cmdRun = false;
-    setTimeout(function() {
-        cmdRun = true
-    }, 5000); //timeout cmd - sets after 5000ms cmdRun to true
-}
  
-PH.setDelay = function(val){
+PH.prototype.onAdvance = function(data){
+	console.log("Advanced");
+	if(autoSkipVal === 1){
+		setTimeout(function(){thisPH.autoSkip(1)},500);
+	}
+};
+
+PH.prototype.setDelay = function(val){
 	delay = parseInt(val);
 	thisPH.autoSkip(1);
 	API.chatLog(scriptName + "Autoskip delay set to " + val + "s.");
 
 }
 
-PH.autoSkipSwitch = function(){
-	if(autoSkipStatus === 0){
+PH.prototype.autoSkipSwitch = function(){
+	if(autoSkipVal === 0){
 		API.chatLog(scriptName + "AutoSkip On. Delay: " + delay + "s.");
 		thisPH.autoSkip(1);
 	}
@@ -69,14 +66,14 @@ PH.autoSkipSwitch = function(){
 };
 
 
-PH.autoSkip = function(val){
+PH.prototype.autoSkip = function(val){
 	if(val === 0){
-		autoSkipStatus = 0;
+		autoSkipVal = 0;
 		window.clearTimeout(autoSkipTimeout);
 		return;
 	}
 	else if(val === 1){
-		autoSkipStatus = 1;
+		autoSkipVal = 1;
 	}
 	timer = API.getTimeRemaining();
 	if(thisPH.delay<0){
@@ -94,6 +91,10 @@ PH.autoSkip = function(val){
 		},(timer*1000));
 	}
 };
+
+var phs = new PH();
+API.on(API.ADVANCE, phs.onAdvance);
+API.on(API.CHAT_COMMAND, phs.onCmd);
 
   function checkStream(){
 		$.ajax({ 

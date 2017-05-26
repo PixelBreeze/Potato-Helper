@@ -5,7 +5,7 @@ $('#chat-messages').append('<div style="width:300px;height:30px;border-left:3px 
 
 //                  -------- VARS --------- 
 var PH = function () {
-	version = "0.1";
+	version = "0.2";
 	this.version = version;
 	scriptName= "[PH] ";
 	delay = 2;
@@ -33,6 +33,10 @@ PH.prototype.onCmd = function(value){
 	}
 	if(value.toLowerCase().startsWith("/stop")){
 		thisPH.stop();
+		return;
+	}
+	if(value.toLowerCase().startsWith("/stream")){
+		thisPH.checkStream(value.substring(8));
 		return;
 	}
 	API.chatLog(scriptName + "Unknown command: " + value);
@@ -92,27 +96,28 @@ PH.prototype.autoSkip = function(val){
 	}
 };
 
-var phs = new PH();
-API.on(API.ADVANCE, phs.onAdvance);
-API.on(API.CHAT_COMMAND, phs.onCmd);
-
-  function checkStream(){
+PH.prototype.checkStream = function(valu){
+	currentChannel = parseInt(valu);
 		$.ajax({ 
-			 url:'https://api.twitch.tv/kraken/streams/' + currentChannel,
+			 url:'https://api.twitch.tv/kraken/streams/' + valu,
 			 dataType:'jsonp',
 				 success:function(channel) { 
         			 if (typeof channel.error !== 'undefined') {
             				API.sendChat("undefined user!");
 					 }
        				else if(channel.stream === null){
-        				API.sendChat( currentChannel + "'s Stream Currently Is Offline");
+        				API.sendChat( valu + "'s Stream Currently Is Offline");
 					 }
        				else {
-					 API.sendChat("http://www.twitch.tv/" + currentChannel + " is LIVE playing " + channel.stream.game + " With " + channel.stream.viewers + " viewers.");
+					 API.sendChat("http://www.twitch.tv/" + valu + " is LIVE playing " + channel.stream.game + " With " + channel.stream.viewers + " viewers.");
 					 }
 				 }
 			});
 		}
+
+var phs = new PH();
+API.on(API.ADVANCE, phs.onAdvance);
+API.on(API.CHAT_COMMAND, phs.onCmd);
 
 function mehrulecalc() { //Calculates the needed mehs for a skip
     var UserCount = API.getUsers().length; //user count in room
